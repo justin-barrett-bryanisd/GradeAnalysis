@@ -19,7 +19,7 @@
 
 
 
-###Bonus
+### Bonus
 - Assign an average concern for a teacher 
 - Subject area for a year
 - Find praises so they can highlight students
