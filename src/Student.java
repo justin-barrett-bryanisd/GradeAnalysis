@@ -13,12 +13,12 @@ public class Student implements Comparable {
     ArrayList<ArrayList<CourseHistory>> peerData;
     HashMap<String, Double> expectedGrades;
     HashMap<String, Double> concernList;
-    static final int CONCERN_THRESHOLD=5;
+    static final int CONCERN_THRESHOLD=0;
     static final DecimalFormat DF=new DecimalFormat("0.00");
 
     public Student(File f) {
         pastData = new ArrayList<CourseHistory>();
-        try {
+        try {  //reading in data
             Scanner scan = new Scanner(f);
             scan.useDelimiter(",");
             id = scan.nextInt(); grade=scan.nextInt();
@@ -45,6 +45,7 @@ public class Student implements Comparable {
                 }
 
             }
+            //calcuates what grades the student should have
             expectedGrades=new HashMap<String, Double>();
             for (CourseHistory courseHistory : pastData) {
                 String courseName=courseHistory.getName();

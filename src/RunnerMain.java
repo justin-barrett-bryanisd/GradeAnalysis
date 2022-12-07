@@ -41,6 +41,19 @@ public class RunnerMain {
         students.get(122349).processSixWeeksGrade("SOC", 73);
         students.get(122349).processSixWeeksGrade("PE", 73);
         
+        
+        students.get(5207).processSixWeeksGrade("MATH", 85);
+        students.get(5207).processSixWeeksGrade("ENG", 84);
+        students.get(5207).processSixWeeksGrade("SCI", 70);
+        students.get(5207).processSixWeeksGrade("SOC", 79);
+        students.get(5207).processSixWeeksGrade("PE", 98);
+        
+        students.get(5207).processSixWeeksGrade("MATH", 85);
+        students.get(5207).processSixWeeksGrade("ENG", 83);
+        students.get(5207).processSixWeeksGrade("SCI", 71);
+        students.get(5207).processSixWeeksGrade("SOC", 77);
+        students.get(5207).processSixWeeksGrade("PE", 100);
+        
         //students.get(988429).printDetails();
         
         ArrayList<Student> sortedStudent=new ArrayList<Student>();
