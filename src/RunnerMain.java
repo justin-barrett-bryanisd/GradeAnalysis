@@ -14,16 +14,39 @@ public class RunnerMain {
         File folder = new File("HistoricalData");
         File[] listOfFiles = folder.listFiles();
 //        //make an ArrayList of Students so you can add them all
-        ArrayList<Student> students = new ArrayList<Student>();
+        HashMap<Integer, Student> students = new HashMap<Integer, Student>();
 //        //new Student(new File("HistoricalData"));
         for (File file : listOfFiles) {
             if (file.isFile()) {
-                System.out.println(file.getName());
-                students.add(new Student(file));
-
+                Student student=new Student(file);
+                students.put(student.id, student);
             }
         }
-        for (Student student : students) {
+        students.get(988429).processSixWeeksGrade("MATH", 73);
+        students.get(988429).processSixWeeksGrade("ENG", 73);
+        students.get(988429).processSixWeeksGrade("SCI", 73);
+        students.get(988429).processSixWeeksGrade("SOC", 73);
+        students.get(988429).processSixWeeksGrade("PE", 73);
+        
+        students.get(100623).processSixWeeksGrade("MATH", 73);
+        students.get(100623).processSixWeeksGrade("ENG", 73);
+        students.get(100623).processSixWeeksGrade("SCI", 73);
+        students.get(100623).processSixWeeksGrade("SOC", 73);
+        students.get(100623).processSixWeeksGrade("PE", 73);
+        
+        
+        students.get(122349).processSixWeeksGrade("MATH", 73);
+        students.get(122349).processSixWeeksGrade("ENG", 73);
+        students.get(122349).processSixWeeksGrade("SCI", 73);
+        students.get(122349).processSixWeeksGrade("SOC", 73);
+        students.get(122349).processSixWeeksGrade("PE", 73);
+        
+        //students.get(988429).printDetails();
+        
+        ArrayList<Student> sortedStudent=new ArrayList<Student>();
+        sortedStudent.addAll(students.values());
+        Collections.sort(sortedStudent);
+        for (Student student : sortedStudent) {
             student.printDetails();
         }
 
