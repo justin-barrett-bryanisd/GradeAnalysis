@@ -8,6 +8,7 @@ public class Student {
     int id;
     int grade;
     ArrayList<CourseHistory> pastData;
+    ArrayList<ArrayList<CourseHistory>> peerData;
 
     public Student(File f) {
         pastData = new ArrayList<CourseHistory>();
