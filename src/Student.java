@@ -13,14 +13,15 @@ public class Student {
         pastData = new ArrayList<CourseHistory>();
         try {
             Scanner scan = new Scanner(f);
-            id = scan.nextInt(); //grade=scan.nextInt();
-                scan.nextLine();
-                System.out.println(id);
-                scan.useDelimiter(",");
+            scan.useDelimiter(",");
+            id = scan.nextInt(); grade=scan.nextInt();
+            scan.nextLine();
             while (scan.hasNext()) {
+                scan.useDelimiter(",");
                 scan.nextLine();
-                String gradeString=scan.nextLine().replaceAll("th", "");
-                grade=Integer.parseInt(gradeString);
+                scan.nextLine();
+//                String gradeString=scan.nextLine().replaceAll("th", "");
+//                grade=Integer.parseInt(gradeString);
                 //System.out.println(gradeString+"|||||||||");
                 for (int j = 0; j < 6; j++) {
                     String name = scan.next();
