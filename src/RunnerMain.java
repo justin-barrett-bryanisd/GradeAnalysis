@@ -15,11 +15,17 @@ public class RunnerMain {
         File[] listOfFiles = folder.listFiles();
 //        //make an ArrayList of Students so you can add them all
         HashMap<Integer, Student> students = new HashMap<Integer, Student>();
+        ArrayList<ArrayList<Student>> peerData=new ArrayList<ArrayList<Student>>();
+        for (int i = 0; i < 4; i++) {
+            peerData.add(new ArrayList<Student>());
+        }
 //        //new Student(new File("HistoricalData"));
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 Student student=new Student(file);
                 students.put(student.id, student);
+                student.setPeerData(peerData.get(student.grade-9));
+                peerData.get(student.grade-9).add(student);
             }
         }
         students.get(988429).processSixWeeksGrade("MATH", 73);
@@ -62,6 +68,8 @@ public class RunnerMain {
         for (Student student : sortedStudent) {
             student.printDetails();
         }
+        
+        System.out.println(students.get(5207).pastData.get("MATH").findDiscrepancyAverage(students.get(5207).getPeers()));
 
     }
     

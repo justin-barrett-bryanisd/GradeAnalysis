@@ -7,23 +7,26 @@ import java.util.Scanner;
 
 public class Student implements Comparable {
 
+    static final int CONCERN_THRESHOLD = 0;
+    static final DecimalFormat DF = new DecimalFormat("0.00");
+
     int id;
     int grade;
-    ArrayList<CourseHistory> pastData;
-    ArrayList<ArrayList<CourseHistory>> peerData;
+    HashMap<String, CourseHistory> pastData;
+    ArrayList<Student> peers;
+
     HashMap<String, Double> expectedGrades;
     HashMap<String, String> providedGrades;
     HashMap<String, Double> concernList;
-    static final int CONCERN_THRESHOLD=0;
-    static final DecimalFormat DF=new DecimalFormat("0.00");
-    int concernCount=0;
+    int concernCount = 0;
 
     public Student(File f) {
-        pastData = new ArrayList<CourseHistory>();
+        pastData = new HashMap<String, CourseHistory>();
         try {  //reading in data
             Scanner scan = new Scanner(f);
             scan.useDelimiter(",");
-            id = scan.nextInt(); grade=scan.nextInt();
+            id = scan.nextInt();
+            grade = scan.nextInt();
             scan.nextLine();
             while (scan.hasNext()) {
                 scan.useDelimiter(",");
@@ -34,94 +37,105 @@ public class Student implements Comparable {
                 //System.out.println(gradeString+"|||||||||");
                 for (int j = 0; j < 6; j++) {
                     String name = scan.next();
-                    boolean done = false;
-                    for (int i = 0; i < pastData.size(); i++) {
-                        if (pastData.get(i).getName().equals(name)) {
-                            done = true;
-                            pastData.get(i).addLine(scan.nextLine());
-                        }
-                    }
-                    if (!done) {
-                        pastData.add(new CourseHistory(name, scan.nextLine()));
+
+                    if (pastData.containsKey(name)) {
+                        pastData.get(name).addLine(scan.nextLine());
+                    } else {
+                        pastData.put(name, new CourseHistory(name, scan.nextLine()));
                     }
                 }
 
             }
             //calcuates what grades the student should have
-            expectedGrades=new HashMap<String, Double>();
-            for (CourseHistory courseHistory : pastData) {
-                String courseName=courseHistory.getName();
-                ArrayList<Double> averages=courseHistory.getAverages();
-                int count=0;
-                double sum=0;
+            expectedGrades = new HashMap<String, Double>();
+
+            for (CourseHistory courseHistory : pastData.values()) {
+                String courseName = courseHistory.getName();
+                ArrayList<Double> averages = courseHistory.getAverages();
+                int count = 0;
+                double sum = 0;
                 for (int i = 0; i < averages.size(); i++) {
-                    count+=(i+1);
-                    sum+=(i+1)*averages.get(i);
+                    count += (i + 1);
+                    sum += (i + 1) * averages.get(i);
                 }
-                expectedGrades.put(courseName, (sum/count));                
+                expectedGrades.put(courseName, (sum / count));
             }
             //System.out.println(id+" EXPECTED GRADES: "+expectedGrades);
-            concernList=new HashMap<String, Double>();
-            providedGrades=new HashMap<String, String>();
+            concernList = new HashMap<String, Double>();
+            providedGrades = new HashMap<String, String>();
             for (String courseName : expectedGrades.keySet()) {
                 concernList.put(courseName, 0.0);
                 providedGrades.put(courseName, "");
-                
+
             }
-            concernCount=0;
+            concernCount = 0;
 
         } catch (Exception e) {
             System.out.println(e);
         }
     }
-    public void printDetails(){
+
+    public ArrayList<Student> getPeers() {
+        return peers;
+    }
+
+    public void setPeerData(ArrayList<Student> peers) {
+        this.peers = peers;
+    }
+
+    public void printDetails() {
         System.out.println("************");
         System.out.println(id);
-        for (CourseHistory courseHistory : pastData) {
-            if(concernList.get(courseHistory.name)>CONCERN_THRESHOLD){
+        System.out.println("Grade: " + grade);
+        System.out.println("Peer Count: " + peers.size());
+        for (CourseHistory courseHistory : pastData.values()) {
+            if (concernList.get(courseHistory.name) > CONCERN_THRESHOLD) {
                 System.out.println(courseHistory.name);
-                System.out.println("Expected:\t\t"+DF.format(expectedGrades.get(courseHistory.name)));
-                System.out.println("Provided Grades:\t"+providedGrades.get(courseHistory.name));
-                System.out.println("Concern Level:\t\t"+DF.format(concernList.get(courseHistory.name)));
+                System.out.println("Expected:\t\t" + DF.format(expectedGrades.get(courseHistory.name)));
+                System.out.println("Provided Grades:\t" + providedGrades.get(courseHistory.name));
+                System.out.println("Concern Level:\t\t" + DF.format(concernList.get(courseHistory.name)));
             }
         }
-        if(getTotalConcern()>CONCERN_THRESHOLD){
-            System.out.println("**Overall Concern:\t"+DF.format(getTotalConcern()));
+        if (getTotalConcern() > CONCERN_THRESHOLD) {
+            System.out.println("**Overall Concern:\t" + DF.format(getTotalConcern()));
         }
     }
-    public void processSixWeeksGrade(String courseName, double average){
-        double expected=expectedGrades.get(courseName);
-        double currentConcern=-1;
+
+    public void processSixWeeksGrade(String courseName, double average) {
+        double expected = expectedGrades.get(courseName);
+        //
+
+        //
+        double currentConcern = -1;
         concernCount++;
-        if(average > expected){
-            currentConcern=0;
+        if (average > expected) {
+            currentConcern = 0;
+        } else {
+            currentConcern = expected - average;
         }
-        else{
-            currentConcern=expected-average;
+        if (concernList.containsKey(courseName)) {
+            concernList.put(courseName, currentConcern + concernList.get(courseName));
+            providedGrades.put(courseName, (providedGrades.get(courseName) + "  " + DF.format(average)).trim());
+        } else {
+            System.out.println("No expected grade for " + courseName);
         }
-        if(concernList.containsKey(courseName)){
-            concernList.put(courseName, currentConcern+concernList.get(courseName));
-            providedGrades.put(courseName, (providedGrades.get(courseName)+"  "+DF.format(average)).trim());
-        }
-        else{
-            System.out.println("No expected grade for "+courseName);
-        }
-        
+
     }
-    
-    public double getTotalConcern(){
-        if(concernCount<1)return 0;
-        double total=0;
-        for (Double value : concernList.values()) {
-            total+=value;
+
+    public double getTotalConcern() {
+        if (concernCount < 1) {
+            return 0;
         }
-        return total/concernCount;
+        double total = 0;
+        for (Double value : concernList.values()) {
+            total += value;
+        }
+        return total / concernCount;
     }
 
     @Override
     public int compareTo(Object o) {
-        return (int)((((Student)o).getTotalConcern()- getTotalConcern())*10000);
+        return (int) ((((Student) o).getTotalConcern() - getTotalConcern()) * 10000);
     }
-    
-    
+
 }

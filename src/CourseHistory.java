@@ -54,5 +54,30 @@ public class CourseHistory {
         return averages;
     }
 
+    public ArrayList<Double> findDiscrepancyAverage(ArrayList<Student> peers){
+        
+        ArrayList<Double> averages=getAverages();
+        ArrayList<Double> differences=new ArrayList<Double>();
+        for (int i = 0; i < averages.size(); i++) {
+            double difference=0;
+            int diffCount=0;
+            for (Student peer : peers) {
+                try {
+                    double peerDiff=averages.get(i)-peer.pastData.get(name).getAverages().get(i);
+                    difference+=peerDiff;
+                    diffCount++;
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                
+            }
+            differences.add(difference/diffCount);
+            
+        }
+        
+        
+        
+        return differences;
+    }
 
 }
