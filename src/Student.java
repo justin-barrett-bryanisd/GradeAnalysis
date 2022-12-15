@@ -19,6 +19,7 @@ public class Student implements Comparable {
     HashMap<String, String> providedGrades;
     HashMap<String, Double> concernList;
     int concernCount = 0;
+    boolean dataEntered;
 
     public Student(File f) {
         pastData = new HashMap<String, CourseHistory>();
@@ -48,7 +49,7 @@ public class Student implements Comparable {
             }
             //calcuates what grades the student should have
             expectedGrades = new HashMap<String, Double>();
-
+            dataEntered=false;
             for (CourseHistory courseHistory : pastData.values()) {
                 String courseName = courseHistory.getName();
                 ArrayList<Double> averages = courseHistory.getAverages();
@@ -104,7 +105,7 @@ public class Student implements Comparable {
     public void processSixWeeksGrade(String courseName, double average) {
         double expected = expectedGrades.get(courseName);
         //
-
+        dataEntered=true;
         //
         double currentConcern = -1;
         concernCount++;
@@ -120,6 +121,10 @@ public class Student implements Comparable {
             System.out.println("No expected grade for " + courseName);
         }
 
+    }
+    
+    public boolean isDataEntered(){
+        return dataEntered;
     }
 
     public double getTotalConcern() {
