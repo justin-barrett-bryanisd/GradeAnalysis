@@ -3,6 +3,7 @@
  *
  * @author NAME
  */
+import java.awt.Desktop;
 import java.util.*;
 import java.text.*;
 import java.io.*;
@@ -88,10 +89,20 @@ public class RunnerMain {
         ArrayList<Student> sortedStudent = new ArrayList<Student>();
         sortedStudent.addAll(students.values());
         Collections.sort(sortedStudent);
-        for (Student student : sortedStudent) {
-            if (student.isDataEntered()) {
-                student.printDetails();
+        try {
+            PrintWriter out = new PrintWriter(new File("output.txt"));
+            out.println("Students listed in order of importance to contact");
+            for (Student student : sortedStudent) {
+                if (student.isDataEntered()) {
+                    student.printDetails(out);
+                }
+
             }
+            out.close();
+            
+            Desktop.getDesktop().open(new File("output.txt"));
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
         //System.out.println(students.get(5207).pastData.get("MATH").findDiscrepancyAverage(students.get(5207).getPeers()));

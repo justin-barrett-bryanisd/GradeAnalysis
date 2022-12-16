@@ -1,5 +1,6 @@
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,21 +85,21 @@ public class Student implements Comparable {
         this.peers = peers;
     }
 
-    public void printDetails() {
-        System.out.println("************");
-        System.out.println(id);
-        System.out.println("Grade: " + grade);
-        System.out.println("Peer Count: " + peers.size());
+    public void printDetails(PrintWriter out) {
+        out.println("************");
+        out.println(id);
+        out.println("Grade: " + grade);
+        out.println("Peer Count: " + peers.size());
         for (CourseHistory courseHistory : pastData.values()) {
             if (concernList.get(courseHistory.name) > CONCERN_THRESHOLD) {
-                System.out.println(courseHistory.name);
-                System.out.println("Expected:\t\t" + DF.format(expectedGrades.get(courseHistory.name)));
-                System.out.println("Provided Grades:\t" + providedGrades.get(courseHistory.name));
-                System.out.println("Concern Level:\t\t" + DF.format(concernList.get(courseHistory.name)));
+                out.println(courseHistory.name);
+                out.println("Expected:\t\t" + DF.format(expectedGrades.get(courseHistory.name)));
+                out.println("Provided Grades:\t" + providedGrades.get(courseHistory.name));
+                out.println("Concern Level:\t\t" + DF.format(concernList.get(courseHistory.name)));
             }
         }
         if (getTotalConcern() > CONCERN_THRESHOLD) {
-            System.out.println("**Overall Concern:\t" + DF.format(getTotalConcern()));
+            out.println("**Overall Concern:\t" + DF.format(getTotalConcern()));
         }
     }
 

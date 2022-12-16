@@ -16,15 +16,15 @@
 
 
 
-
-
-
-
-
 ### Bonus
 - Assign an average concern for a teacher 
 - Subject area for a year
 - Find praises so they can highlight students
 - Praises average for teachers too
+
+### Next Email
+- Send to Ms. Stautzenberger and cc to Ms. Davis
+- Show the video (historical files we created, grade report from current year, code running, , results)
+- If they want us to proceed to provide data for campus we need: 1 sample student historical data, 1 sample report card pull from TAC/HAC
 
  

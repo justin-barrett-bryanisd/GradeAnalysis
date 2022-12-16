@@ -1,0 +1,227 @@
+Students listed in order of importance to contact
+************
+410120
+Grade: 10
+Peer Count: 46
+ART
+Expected:		94.78
+Provided Grades:	94.00  92.00
+Concern Level:		3.56
+PE
+Expected:		94.89
+Provided Grades:	93.00  95.00
+Concern Level:		1.89
+SOC
+Expected:		75.78
+Provided Grades:	74.00  73.00
+Concern Level:		4.56
+SCI
+Expected:		92.11
+Provided Grades:	91.00  90.00
+Concern Level:		3.22
+ENG
+Expected:		78.06
+Provided Grades:	78.00  79.00
+Concern Level:		0.06
+**Overall Concern:	1.11
+************
+623617
+Grade: 11
+Peer Count: 60
+ART
+Expected:		96.25
+Provided Grades:	98.00  94.00
+Concern Level:		2.25
+PE
+Expected:		96.88
+Provided Grades:	95.00  99.00
+Concern Level:		1.88
+SOC
+Expected:		95.93
+Provided Grades:	95.00  95.00
+Concern Level:		1.87
+SCI
+Expected:		82.25
+Provided Grades:	78.00  84.00
+Concern Level:		4.25
+MATH
+Expected:		73.08
+Provided Grades:	76.00  71.00
+Concern Level:		2.08
+**Overall Concern:	1.03
+************
+857739
+Grade: 12
+Peer Count: 47
+ART
+Expected:		84.40
+Provided Grades:	84.00  87.00
+Concern Level:		0.40
+PE
+Expected:		95.58
+Provided Grades:	95.00  98.00
+Concern Level:		0.58
+SOC
+Expected:		74.07
+Provided Grades:	72.00  77.00
+Concern Level:		2.07
+SCI
+Expected:		87.04
+Provided Grades:	86.00  84.00
+Concern Level:		4.09
+MATH
+Expected:		73.87
+Provided Grades:	73.00  73.00
+Concern Level:		1.73
+ENG
+Expected:		73.21
+Provided Grades:	71.00  74.00
+Concern Level:		2.21
+**Overall Concern:	0.92
+************
+999951
+Grade: 10
+Peer Count: 46
+ART
+Expected:		81.81
+Provided Grades:	80.00  84.00
+Concern Level:		1.81
+PE
+Expected:		94.83
+Provided Grades:	93.00  98.00
+Concern Level:		1.83
+SCI
+Expected:		76.83
+Provided Grades:	76.00  75.00
+Concern Level:		2.67
+MATH
+Expected:		93.47
+Provided Grades:	92.00  94.00
+Concern Level:		1.47
+ENG
+Expected:		95.17
+Provided Grades:	93.00  98.00
+Concern Level:		2.17
+**Overall Concern:	0.83
+************
+36041
+Grade: 12
+Peer Count: 47
+ART
+Expected:		80.46
+Provided Grades:	79.00  81.00
+Concern Level:		1.46
+PE
+Expected:		96.29
+Provided Grades:	94.00  97.00
+Concern Level:		2.29
+SOC
+Expected:		83.64
+Provided Grades:	81.00  86.00
+Concern Level:		2.64
+SCI
+Expected:		94.08
+Provided Grades:	95.00  92.00
+Concern Level:		2.08
+ENG
+Expected:		82.24
+Provided Grades:	81.00  85.00
+Concern Level:		1.24
+**Overall Concern:	0.81
+************
+117465
+Grade: 9
+Peer Count: 62
+ART
+Expected:		94.06
+Provided Grades:	94.00  94.00
+Concern Level:		0.11
+PE
+Expected:		95.67
+Provided Grades:	96.00  93.00
+Concern Level:		2.67
+SOC
+Expected:		93.11
+Provided Grades:	91.00  95.00
+Concern Level:		2.11
+MATH
+Expected:		97.17
+Provided Grades:	94.00  96.00
+Concern Level:		4.33
+**Overall Concern:	0.77
+************
+905129
+Grade: 11
+Peer Count: 60
+ART
+Expected:		89.12
+Provided Grades:	87.00  90.00
+Concern Level:		2.12
+PE
+Expected:		98.70
+Provided Grades:	99.00  97.00
+Concern Level:		1.70
+SOC
+Expected:		93.63
+Provided Grades:	96.00  92.00
+Concern Level:		1.63
+ENG
+Expected:		90.42
+Provided Grades:	91.00  88.00
+Concern Level:		2.42
+**Overall Concern:	0.66
+************
+722908
+Grade: 9
+Peer Count: 62
+ART
+Expected:		83.78
+Provided Grades:	85.00  83.00
+Concern Level:		0.78
+SOC
+Expected:		89.72
+Provided Grades:	88.00  91.00
+Concern Level:		1.72
+MATH
+Expected:		81.39
+Provided Grades:	81.00  84.00
+Concern Level:		0.39
+ENG
+Expected:		99.17
+Provided Grades:	98.00  96.00
+Concern Level:		4.33
+**Overall Concern:	0.60
+************
+5207
+Grade: 12
+Peer Count: 47
+SOC
+Expected:		78.26
+Provided Grades:	79.00  77.00
+Concern Level:		1.26
+SCI
+Expected:		70.07
+Provided Grades:	70.00  71.00
+Concern Level:		0.07
+MATH
+Expected:		86.73
+Provided Grades:	85.00  85.00
+Concern Level:		3.47
+**Overall Concern:	0.40
+************
+5755
+Grade: 12
+Peer Count: 47
+ART
+Expected:		84.84
+Provided Grades:	85.00  83.00
+Concern Level:		1.84
+MATH
+Expected:		88.02
+Provided Grades:	87.00  92.00
+Concern Level:		1.02
+ENG
+Expected:		76.68
+Provided Grades:	75.00  77.00
+Concern Level:		1.68
+**Overall Concern:	0.38
